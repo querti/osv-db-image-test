@@ -22,7 +22,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/lgallovi-tenant/osv-db-image-test:{{revision}}
+    value: quay.io/redhat-user-workloads/lgallovi-tenant/osv-db-image-test:latest
   - name: dockerfile
     value: Dockerfile
   pipelineSpec:
