@@ -1,0 +1,33 @@
+name: Trigger osv db image build
+
+# This workflow creates/reopens PR and closes it
+# in order to trigger PAC to build clair DB image
+
+on:
+  schedule:
+    - cron: '30 9 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  SOURCE_BRANCH: master
+
+jobs:
+  test:
+    name: Build the new image
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+      with:
+        ref: 'master'
+    - name: create empty commit
+      run: |
+          git config --global user.email "<>"
+          git config --global user.name "build-trigger"
+          echo "Creating empty commit."
+            git commit --allow-empty -m "$(date)"
+            git push origin "${SOURCE_BRANCH}" -f
