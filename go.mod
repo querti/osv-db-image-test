@@ -6,7 +6,7 @@ require (
 	github.com/dchest/uniuri v1.2.0
 	github.com/google/go-cmp v0.6.0
 	github.com/google/go-github/v45 v45.2.0
-	github.com/jarcoal/httpmock v1.3.1
+	github.com/jarcoal/httpmock v1.4.0
 )
 
 require (
